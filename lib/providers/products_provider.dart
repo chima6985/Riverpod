@@ -1,7 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:riverpod_files/models/product.dart';
 
-
 part 'products_provider.g.dart';
 
 const List<Product> allProducts = [
@@ -53,13 +52,18 @@ const List<Product> allProducts = [
 //   },
 // );f
 
-final reducedProductsProvider = Provider((ref) {
-  return allProducts.where((p) => p.price < 50).toList();
-});
+// final reducedProductsProvider = Provider((ref) {
+//   return allProducts.where((p) => p.price < 50).toList();
+// });
 
 //generated providers
 
 @riverpod
 List<Product> products(ref) {
   return allProducts;
+}
+
+@riverpod
+List<Product> reducedProducts(ref) {
+  return allProducts.where((p) => p.price < 50).toList();
 }
