@@ -34,7 +34,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                       Image.asset(
                         product.image,
                         width: 60,
-                        height: 50,
+                        height: 60,
                       ),
                       const SizedBox(
                         width: 10,
