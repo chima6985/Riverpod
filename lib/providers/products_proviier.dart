@@ -52,3 +52,6 @@ final productsProvider = Provider((ref) {
 final reducedProductsProvider = Provider ((ref) {
   return allProducts.where((p) => p.price < 50).toList();
 });
+
+
+//generated providers 
