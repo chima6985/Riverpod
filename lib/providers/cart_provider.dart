@@ -13,6 +13,11 @@ class CartNotifier extends Notifier<Set<Product>> {
           image: 'assets/products/backpack.png'),
     };
   }
+  void addProduct(Product cartProduct){
+    if (!state.contains(cartProduct)){
+      state = {...state, cartProduct};
+    }
+  }
 }
 
 final cartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>(() {
