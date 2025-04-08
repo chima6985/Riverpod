@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_files/providers/products_proviier.dart';
 import 'package:riverpod_files/shared/cart_icon.dart';
 
 class HomeScreen extends ConsumerWidget{
@@ -7,6 +8,8 @@ class HomeScreen extends ConsumerWidget{
 
   @override
   Widget build(BuildContext context, WidgetRef ref ) {
+    final allproducts = ref.watch(productsProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Garage Sale Products'),
@@ -15,7 +18,7 @@ class HomeScreen extends ConsumerWidget{
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: GridView.builder(
-          itemCount: 8,
+          itemCount: allproducts.length,
           gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 20,
@@ -26,6 +29,14 @@ class HomeScreen extends ConsumerWidget{
             return Container(
               padding: const EdgeInsets.all(20),
               color: Colors.blueGrey.withOpacity(0.05),
+              child: Column(
+                children: [
+                  Image.asset(allProducts[index].image,width: 60,height: 60,),
+                  Text(allproducts[index].title),
+                   Text('£${allproducts[index].price}'),
+
+                ],
+              ),
             );
           },
         ),
