@@ -67,3 +67,4 @@ List<Product> products(ref) {
 List<Product> reducedProducts(ref) {
   return allProducts.where((p) => p.price < 50).toList();
 }
+
