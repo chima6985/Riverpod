@@ -23,10 +23,32 @@ class _CartScreenState extends ConsumerState<CartScreen> {
       ),
       body: Container(
         padding: const EdgeInsets.all(30),
-        child: const Column(
+        child: Column(
           children: [
             Column(
-              children: [], // output cart products here
+              children: cartProduct.map((product) {
+                return Container(
+                  padding: const EdgeInsets.only(top: 10, bottom: 10),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        product.image,
+                        width: 60,
+                        height: 60,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text('${product.title}...'),
+                      const Expanded(
+                        child: SizedBox(),
+                      ),
+                      Text('£${product.price}'),
+                    ],
+                  ),
+                );
+              }).toList(),
+              // output cart products here
             ),
 
             // output totals here
