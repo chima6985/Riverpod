@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_files/models/product.dart';
 
 const List<Product> allProducts = [
@@ -42,3 +43,8 @@ const List<Product> allProducts = [
       price: 79,
       image: 'assets/products/guitar.png'),
 ];
+
+
+final productsProvider = Provider((ref) {
+    return allProducts;
+},);
