@@ -1,8 +1,10 @@
-// import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_files/models/product.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class CartNotifier extends Notifier<Set<Product>> {
+part 'cart_provider.g.dart';
+
+@riverpod
+class CartNotifier extends _$CartNotifier {
   @override
   Set<Product> build() {
     return const {
@@ -13,19 +15,18 @@ class CartNotifier extends Notifier<Set<Product>> {
           image: 'assets/products/backpack.png'),
     };
   }
-  void addProduct(Product cartProduct){
-    if (!state.contains(cartProduct)){
+
+  void addProduct(Product cartProduct) {
+    if (!state.contains(cartProduct)) {
       state = {...state, cartProduct};
     }
   }
 
-  void removeProduct(Product cartProduct){
-    if (state.contains(cartProduct)){
+  void removeProduct(Product cartProduct) {
+    if (state.contains(cartProduct)) {
       state = state.where((p) => p.id != cartProduct.id).toSet();
     }
   }
 }
 
-final cartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>(() {
-  return CartNotifier();
-});
+

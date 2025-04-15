@@ -45,7 +45,8 @@ class HomeScreen extends ConsumerWidget {
                   ))
                     TextButton(
                       onPressed: () {
-                         
+                         ref.read(cartNotifierProvider.notifier).
+                         removeProduct(allProducts[index]);
                       },
                       child: const Text('Remove'),
                     ),
