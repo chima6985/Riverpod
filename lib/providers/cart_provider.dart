@@ -18,6 +18,12 @@ class CartNotifier extends Notifier<Set<Product>> {
       state = {...state, cartProduct};
     }
   }
+
+  void removeProduct(Product cartProduct){
+    if (state.contains(cartProduct)){
+      state = state.where((p) => p.id != cartProduct.id).toSet();
+    }
+  }
 }
 
 final cartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>(() {

@@ -45,9 +45,7 @@ class HomeScreen extends ConsumerWidget {
                   ))
                     TextButton(
                       onPressed: () {
-                        ref
-                            .read(cartNotifierProvider.notifier)
-                            .addProduct(allProducts[index]);
+                         
                       },
                       child: const Text('Remove'),
                     ),
@@ -55,7 +53,11 @@ class HomeScreen extends ConsumerWidget {
                     allProducts[index],
                   ))
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        ref
+                            .read(cartNotifierProvider.notifier)
+                            .addProduct(allProducts[index]);
+                      },
                       child: const Text('Add to Cart'),
                     )
                 ],
