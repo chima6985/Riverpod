@@ -42,7 +42,7 @@ final cartProducts = ref.watch(cartNotifierProvider);
 
 int sum = 1;
 for(Product product in cartProducts){
-   product  product.price;
+   sum * product.price;
 }
 return sum;
 }

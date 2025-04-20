@@ -22,6 +22,22 @@ final cartTotalProvider = AutoDisposeProvider<int>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef CartTotalRef = AutoDisposeProviderRef<int>;
+String _$cartSumHash() => r'0de7698229a024c431ada907b833b6c0d3bb1abe';
+
+/// See also [cartSum].
+@ProviderFor(cartSum)
+final cartSumProvider = AutoDisposeProvider<int>.internal(
+  cartSum,
+  name: r'cartSumProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$cartSumHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef CartSumRef = AutoDisposeProviderRef<int>;
 String _$cartNotifierHash() => r'd6f5b609d40ac844a0f689c4bf146a2a7ea4899d';
 
 /// See also [CartNotifier].
